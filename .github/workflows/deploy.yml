@@ -1,0 +1,20 @@
+name: Розгортання на GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Змініть це, якщо ваша основна гілка має іншу назву
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Витягнення репозиторію
+        uses: actions/checkout@v2
+
+      - name: Розгортання на GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Встановіть це в директорію, де розташований 
+ваш HTML-файл, якщо він різний

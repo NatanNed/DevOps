@@ -1,4 +1,4 @@
-name: Запуск Docker контейнера при push
+name: Display Name on Push
 
 on:
   push:
@@ -6,14 +6,11 @@ on:
       - main
 
 jobs:
-  run-script:
+  display_name:
     runs-on: ubuntu-latest
     steps:
-      - name: Витягнути репозиторій
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Збудувати Docker зображення
-        run: docker build -t my-docker-image .
-
-      - name: Запустити Docker контейнер
-        run: docker run my-docker-image
+        
+      - name: Run display name script
+        run: .github/scripts/display_name.sh
