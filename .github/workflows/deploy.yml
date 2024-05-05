@@ -3,7 +3,7 @@ name: Розгортання на GitHub Pages
 on:
   push:
     branches:
-      - master  # Змініть це, якщо ваша основна гілка має іншу назву
+      - main  # Змініть це, якщо ваша основна гілка має іншу назву
 
 jobs:
   build-and-deploy:
