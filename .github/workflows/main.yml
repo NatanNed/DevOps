@@ -1,0 +1,19 @@
+name: Запуск Docker контейнера при push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Витягнути репозиторій
+        uses: actions/checkout@v2
+
+      - name: Збудувати Docker зображення
+        run: docker build -t my-docker-image .
+
+      - name: Запустити Docker контейнер
+        run: docker run my-docker-image
